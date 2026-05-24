@@ -16,12 +16,14 @@ export default {
   name: 'WorkoutList',
   data() {
     return {
-      workouts: [
-        { id: 1, name: 'Leg Day',    date: '2026-05-01', durationMinutes: 60 },
-        { id: 2, name: 'Upper Body', date: '2026-05-02', durationMinutes: 45 },
-        { id: 3, name: 'Cardio',     date: '2026-05-03', durationMinutes: 30 },
-      ]
+      workouts: []
     }
+  },
+  mounted() {
+    fetch('https://<YOUR-BACKEND-URL>/workouts')
+      .then(res => res.json())
+      .then(data => { this.workouts = data })
+      .catch(err => console.error('Fetch error:', err))
   }
 }
 </script>
