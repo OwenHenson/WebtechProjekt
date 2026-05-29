@@ -20,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    fetch('https://<YOUR-BACKEND-URL>/workouts')
+    fetch('https://webtechprojekt-backend.onrender.com/workouts')
       .then(res => res.json())
       .then(data => { this.workouts = data })
       .catch(err => console.error('Fetch error:', err))
